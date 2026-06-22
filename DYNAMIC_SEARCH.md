@@ -1,0 +1,6 @@
+1. *Dynamic Lookup:* If the inputted drug name is not in our local dataset, implement a mechanism to look up its required input features (e.g., target genes, SMILES string, or chemical properties) via a local lookup table or a standard external API (like DrugBank, ChEMBL, or PubChem).
+2. *Live Execution:* Pass these dynamically fetched features into the exact same computational pipeline used for the rest of the application. Run the prediction/scoring logic live.
+3. *UI/UX:* Add a search interface in the frontend. When a search is triggered, display a clear loading state (e.g., "Computing relevance for [drug]... this may take a moment").
+4. *Display Results:* Once the backend finishes, display the drug's computed relevance/similarity score to the currently active disease.
+5. *No Permanent State:* Keep this result strictly in-memory. Do NOT automatically append it to our pre-computed databases or permanent storage unless I explicitly confirm later.
+6. *Error Handling:* If the required biological/chemical data for the typed drug cannot be found, gracefully abort and display: "Insufficient data available for [drug name] — computational relevance cannot be evaluated."

@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(curl -s http://127.0.0.1:8077/)",
+      "Bash(curl -s http://127.0.0.1:8077/stats)",
+      "Bash(curl -s http://127.0.0.1:8077/drug/Imatinib/attenuation)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('targets:',d['n_targets'],d.get\\('targets'\\)\\); print\\('top edge:',d['edges'][0] if d['edges'] else None\\); print\\('num edges:',len\\(d['edges']\\)\\)\")",
+      "Bash(curl -s http://127.0.0.1:8077/drug/Imatinib/chemistry)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('class:',d['drug_class'],'| scaffold:',d['scaffold_family']\\); print\\('groups:',d['functional_groups']\\); print\\('top similar:',d['similar_drugs'][:2]\\); print\\('top disease profile:',d['disease_profiles'][:2]\\)\")",
+      "Bash(curl -s http://127.0.0.1:8077/disease/Leukemia/verification)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('n_known:',d['n_known'],'n_overlap:',d['n_overlap']\\); print\\('overlap drugs:',d['overlap_drugs']\\); print\\('top3 computed:',[\\(r['drug_name'],r['overlap']\\) for r in d['computed_ranking'][:3]]\\)\")",
+      "Bash(curl -s -X POST http://127.0.0.1:8077/infer -H \"Content-Type: application/json\" -d '{\"drug_name\":\"Imatinib\",\"disease_name\":\"Leukemia\"}')",
+      "Bash(curl -s -X POST http://127.0.0.1:8077/infer -H \"Content-Type: application/json\" -d '{\"drug_name\":\"Lisinopril\",\"disease_name\":\"Hypertension\"}')",
+      "Bash(curl -s -X POST http://127.0.0.1:8077/infer -H \"Content-Type: application/json\" -d '{\"drug_name\":\"Notadrugxyz\",\"disease_name\":\"Hypertension\"}')",
+      "Bash(npm --version)",
+      "Bash(npm run *)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"stats: %{http_code}\\\\n\" http://127.0.0.1:8077/stats)",
+      "Bash(curl -s -X POST http://127.0.0.1:8077/infer -H \"Content-Type: application/json\" -d '{\"drug_name\":\"Trandolapril\",\"disease_name\":\"Hypertension\"}' --max-time 150)",
+      "Bash(time curl -s -X POST http://127.0.0.1:8077/infer -H \"Content-Type: application/json\" -d '{\"drug_name\":\"trandolapril\",\"disease_name\":\"Leukemia\"}' --max-time 60)",
+      "Bash(curl -s -o /dev/null -w \"vite: %{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('cols present in row 0:', list\\(d['edges'][0].keys\\(\\)\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"backend /stats: %{http_code}\\\\n\" http://127.0.0.1:8077/stats)",
+      "Bash(curl -s -o /dev/null -w \"frontend:      %{http_code}\\\\n\" http://localhost:5173/)"
+    ]
+  }
+}
