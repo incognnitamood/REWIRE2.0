@@ -1,0 +1,12 @@
+networkx
+python-louvain
+numpy
+pandas
+scipy
+scikit-learn
+fastapi
+uvicorn
+torch
+torch_geometric
+pydantic
+tqdm
